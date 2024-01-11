@@ -33,3 +33,25 @@ function Balloon() {
 }
 
 function Draw() {
+
+  updateBallons(bCtx);
+
+  ctx.clearRect(0, 0, cw, ch);
+  var img = bc;
+  ctx.drawImage(img, 0, 0);
+
+  requestId = window.requestAnimationFrame(Draw);
+}
+//requestId = window.requestAnimationFrame(Draw);
+
+function Init() {
+  if (requestId) {
+    window.cancelAnimationFrame(requestId);
+    requestId = null;
+  }
+  cw = c.width = bc.width = window.innerWidth, cx = cw / 2;
+  ch = c.height = bc.height = window.innerHeight + 100, cy = ch;
+  bCtx.strokeStyle = "#abcdef";
+  bCtx.lineWidth = 1;
+  Draw();
+}
