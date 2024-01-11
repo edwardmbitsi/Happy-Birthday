@@ -13,3 +13,23 @@ var frames = 0;
 var requestId = null;
 var rad = (Math.PI / 180);
 var kappa = 0.5522847498;
+
+var x, y;
+bCtx.strokeStyle = "#abcdef";
+bCtx.lineWidth = 1;
+
+var balloons = [];
+
+function Balloon() {
+  this.r = randomIntFromInterval(20, 70);
+  this.R = 1.4 * this.r;
+  this.x = randomIntFromInterval(this.r, cw - this.r);
+  this.y = ch + 2 * this.r;
+  this.a = this.r * 4.5;
+  this.pm = Math.random() < 0.5 ? -1 : 1;
+  this.speed = randomIntFromInterval(1.5, 4);
+  this.k = this.speed / 5;
+  this.hue = this.pm > 0 ? "210" : "10";
+}
+
+function Draw() {
