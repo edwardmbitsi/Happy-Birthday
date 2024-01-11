@@ -55,3 +55,32 @@ function Init() {
   bCtx.lineWidth = 1;
   Draw();
 }
+
+setTimeout(function() {
+  Init();
+  window.addEventListener('resize', Init, false);
+}, 15);
+
+function updateBallons(ctx) {
+  frames += 1;
+  if (frames % 37 == 0 && balloons.length < 37) {
+    var balloon = new Balloon();
+    balloons.push(balloon);
+  }
+  ctx.clearRect(0, 0, cw, ch);
+
+  for (var i = 0; i < balloons.length; i++) {
+    var b = balloons[i];
+    if (b.y > -b.a) {
+      b.y -= b.speed
+    } else {
+      b.y = parseInt(ch + b.r + b.R);
+    }
+
+    var p = thread(b, ctx);
+    b.cx = p.x;
+    b.cy = p.y - b.R;
+    ctx.fillStyle = Grd(p.x, p.y, b.r, b.hue)
+    drawBalloon(b, ctx);
+  }
+}
