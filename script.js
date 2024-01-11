@@ -80,7 +80,11 @@ function updateBallons(ctx) {
     var p = thread(b, ctx);
     b.cx = p.x;
     b.cy = p.y - b.R;
-    
+    ctx.fillStyle = Grd(p.x, p.y, b.r, b.hue)
+    drawBalloon(b, ctx);
+  }
+}
+
 function drawBalloon(b, ctx) {
 
   var or = b.r * kappa; // offset
@@ -146,11 +150,7 @@ function drawBalloon(b, ctx) {
     y: p4.y + .2 * b.r * Math.sin(110 * rad)
   }
 
-    ctx.fillStyle = Grd(p.x, p.y, b.r, b.hue)
-    drawBalloon(b, ctx);
-  }
-}
- //balloon
+  //balloon
   ctx.beginPath();
   ctx.moveTo(p4.x, p4.y);
   ctx.bezierCurveTo(pc42.x, pc42.y, pc11.x, pc11.y, p1.x, p1.y);
@@ -173,7 +173,7 @@ function thread(b, ctx) {
     y = b.y + b.pm * 25 * Math.sin(b.k * t - frames * rad) + 50 * t
     ctx.lineTo(x, y)
   }
-ctx.stroke();
+  ctx.stroke();
   return p = {
     x: x,
     y: y
