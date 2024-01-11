@@ -173,3 +173,21 @@ function thread(b, ctx) {
     y = b.y + b.pm * 25 * Math.sin(b.k * t - frames * rad) + 50 * t
     ctx.lineTo(x, y)
   }
+ctx.stroke();
+  return p = {
+    x: x,
+    y: y
+  }
+}
+
+function Grd(x, y, r, hue) {
+  grd = ctx.createRadialGradient(x - .5 * r, y - 1.7 * r, 0, x - .5 * r, y - 1.7 * r, r);
+  grd.addColorStop(0, 'hsla(' + hue + ',100%,65%,.95)');
+  grd.addColorStop(0.4, 'hsla(' + hue + ',100%,45%,.85)');
+  grd.addColorStop(1, 'hsla(' + hue + ',100%,25%,.80)');
+  return grd;
+}
+
+function randomIntFromInterval(mn, mx) {
+  return ~~(Math.random() * (mx - mn + 1) + mn);
+}
