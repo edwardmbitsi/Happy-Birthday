@@ -191,3 +191,23 @@ function Grd(x, y, r, hue) {
 function randomIntFromInterval(mn, mx) {
   return ~~(Math.random() * (mx - mn + 1) + mn);
 }
+
+const quotes = [
+  "Happy Birthday, Betty! 🎂 Wishing you a day filled with joy, a year filled with love, and a lifetime filled with laughter. Cheers to celebrating you!",
+  "To the one and only Betty on her special day! 🎉 May your birthday be as bright and beautiful as your spirit. Here's to making wonderful memories and enjoying every moment!",
+  "Happy Birthday, Betty! 🎈 On this day, may you be surrounded by love, bathed in happiness, and gifted with all the things that bring you joy. Cheers to another fabulous year ahead!",
+  "Sending you the biggest birthday hugs, Betty! 🤗 May your day be filled with love, laughter, and all the things that make your heart smile. Here's to you, the star of the day!",
+  "Cheers to the extraordinary Betty! 🥳 On your birthday, may you be blessed with all the happiness you've shared with others. Wishing you a day that's as wonderful as you are!",
+  "Happy Birthday, Betty! 🎂 May this year be a canvas of beautiful moments, and may each day be a new brushstroke of joy and success. Here's to painting a vibrant and fulfilling life!",
+  "Warmest birthday wishes to the amazing Betty! 🎉 May this day bring you endless smiles, heartwarming surprises, and the realization of dreams you've yet to dream. Celebrate yourself to the fullest!",
+  "Happy Birthday, Betty! 🎈 Today is all about you—your wishes, your dreams, and the incredible person you are. May this year be the chapter where every page radiates happiness!",
+  "To my dearest Betty on her special day! 🥳 May your birthday be sprinkled with love, wrapped in joy, and filled with the warmth of cherished moments. Here's to creating more beautiful memories together!",
+  "Happy Birthday, Betty! 🎂 On your special day, may you be surrounded by friends who adore you, family who loves you, and moments that make you smile. Here's to the spectacular person you are!",
+
+  // Add more quotes as needed
+];
+
+// Function to get a random quote from the array
+function getRandomQuote() {
+  return quotes[Math.floor(Math.random() * quotes.length)];
+}
