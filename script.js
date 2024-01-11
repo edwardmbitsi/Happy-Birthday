@@ -150,3 +150,26 @@ function drawBalloon(b, ctx) {
     drawBalloon(b, ctx);
   }
 }
+ //balloon
+  ctx.beginPath();
+  ctx.moveTo(p4.x, p4.y);
+  ctx.bezierCurveTo(pc42.x, pc42.y, pc11.x, pc11.y, p1.x, p1.y);
+  ctx.bezierCurveTo(pc12.x, pc12.y, pc21.x, pc21.y, p2.x, p2.y);
+  ctx.bezierCurveTo(pc22.x, pc22.y, pc31.x, pc31.y, p3.x, p3.y);
+  ctx.bezierCurveTo(pc32.x, pc32.y, pc41.x, pc41.y, p4.x, p4.y);
+  //knot
+  ctx.lineTo(t1.x, t1.y);
+  ctx.lineTo(t2.x, t2.y);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function thread(b, ctx) {
+  ctx.beginPath();
+
+  for (var i = b.a; i > 0; i -= 1) {
+    var t = i * rad;
+    x = b.x + b.pm * 50 * Math.cos(b.k * t - frames * rad)
+    y = b.y + b.pm * 25 * Math.sin(b.k * t - frames * rad) + 50 * t
+    ctx.lineTo(x, y)
+  }
