@@ -80,6 +80,72 @@ function updateBallons(ctx) {
     var p = thread(b, ctx);
     b.cx = p.x;
     b.cy = p.y - b.R;
+    
+function drawBalloon(b, ctx) {
+
+  var or = b.r * kappa; // offset
+
+  var p1 = {
+    x: b.cx - b.r,
+    y: b.cy
+  }
+  var pc11 = {
+    x: p1.x,
+    y: p1.y + or
+  }
+  var pc12 = {
+    x: p1.x,
+    y: p1.y - or
+  }
+
+  var p2 = {
+    x: b.cx,
+    y: b.cy - b.r
+  }
+  var pc21 = {
+    x: b.cx - or,
+    y: p2.y
+  }
+  var pc22 = {
+    x: b.cx + or,
+    y: p2.y
+  }
+
+  var p3 = {
+    x: b.cx + b.r,
+    y: b.cy
+  }
+  var pc31 = {
+    x: p3.x,
+    y: p3.y - or
+  }
+  var pc32 = {
+    x: p3.x,
+    y: p3.y + or
+  }
+
+  var p4 = {
+    x: b.cx,
+    y: b.cy + b.R
+  };
+  var pc41 = {
+    x: p4.x + or,
+    y: p4.y
+  }
+  var pc42 = {
+    x: p4.x - or,
+    y: p4.y
+  }
+
+  var t1 = {
+    x: p4.x + .2 * b.r * Math.cos(70 * rad),
+    y: p4.y + .2 * b.r * Math.sin(70 * rad)
+  }
+  var t2 = {
+    x: p4.x + .2 * b.r * Math.cos(110 * rad),
+    y: p4.y + .2 * b.r * Math.sin(110 * rad)
+  }
+
     ctx.fillStyle = Grd(p.x, p.y, b.r, b.hue)
     drawBalloon(b, ctx);
   }
