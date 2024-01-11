@@ -211,3 +211,6 @@ const quotes = [
 function getRandomQuote() {
   return quotes[Math.floor(Math.random() * quotes.length)];
 }
+
+// Set the quote in the HTML
+document.getElementById('quote').textContent = getRandomQuote();
